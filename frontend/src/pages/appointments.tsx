@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AddAppointmentForm from "../components/addApplicationForm";
+import AddAppointmentForm from "../components/addAppointmentForm";
 import useAppointments from "../hooks/useAppointment";
 import { useDeleteAppointment } from "../hooks/useDeleteAppointment";
 import type { Appointment, AppointmentStatus } from "../types";
@@ -28,7 +28,6 @@ export const Appointments = () => {
     <div className="p-10">
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-3xl font-bold">Appointments</h1>
-
         {!showForm && (
           <button
             type="button"
@@ -39,7 +38,6 @@ export const Appointments = () => {
           </button>
         )}
       </div>
-
       {showForm ? (
         <AddAppointmentForm onCancel={() => setShowForm(false)} />
       ) : (
@@ -48,19 +46,13 @@ export const Appointments = () => {
             <thead className="bg-gray-100">
               <tr>
                 <th className="px-6 py-4">Customer</th>
-
                 <th className="px-6 py-4">Service</th>
-
                 <th className="px-6 py-4">Date</th>
-
                 <th className="px-6 py-4">Time</th>
-
                 <th className="px-6 py-4">Status</th>
-
                 <th className="px-6 py-4">Actions</th>
               </tr>
             </thead>
-
             <tbody>
               {appointments?.map((appointment: Appointment) => (
                 <tr key={appointment.id} className="border-t border-gray-200">
@@ -71,17 +63,12 @@ export const Appointments = () => {
                       {appointment.phone}
                     </div>
                   </td>
-
                   <td className="px-6 py-4">
                     {appointment.service_details.name}
                   </td>
-
                   <td className="px-6 py-4">{appointment.date}</td>
-
                   <td className="px-6 py-4">{appointment.time}</td>
-
                   <td className="px-6 py-4">{appointment.status}</td>
-
                   <td className="px-6 py-4">
                     <select
                       value={appointment.status}
@@ -97,7 +84,6 @@ export const Appointments = () => {
                       <option value="Completed">Completed</option>
                       <option value="Cancelled">Cancelled</option>
                     </select>
-
                     <button
                       className="text-red-600"
                       onClick={() => deleteAppointment(appointment.id)}
@@ -110,7 +96,6 @@ export const Appointments = () => {
               ))}
             </tbody>
           </table>
-
           {appointments?.length === 0 && (
             <p className="text-center py-10 text-gray-500">
               No appointments found.

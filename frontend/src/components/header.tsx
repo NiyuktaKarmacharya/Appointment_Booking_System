@@ -12,7 +12,7 @@ export default function Header() {
           <NavLink
             to="/services"
             className={({ isActive }) =>
-              isActive ? "text-teal-700" : "text-gray-600 hover:text-teal-700"
+              isActive ? "text-blue-700" : "text-gray-600 hover:text-blue-700"
             }
           >
             Services
